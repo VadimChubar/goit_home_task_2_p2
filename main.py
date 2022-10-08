@@ -149,12 +149,64 @@ import os
 
 # GLOBALS
 
+
+class MyBaseAbstractClass:
+
+    def add_record(self):
+        raise NotImplementedError()
+
+    def del_record(self):
+        raise NotImplementedError()
+
+    def add_notes(self):
+        raise NotImplementedError()
+
+    def find_notes_by_tages(self):
+        raise NotImplementedError()
+
+    def sort_notes_by_tages(self):
+        raise NotImplementedError()
+
+    def birthday_in_days(self):
+        raise NotImplementedError()
+
+    def change_notes(self):
+        raise NotImplementedError()
+
+    def del_notes(self):
+        raise NotImplementedError()
+
+    def change_adress(self):
+        raise NotImplementedError()
+
+    def change_email(self):
+        raise NotImplementedError()
+
+    def add_phone(self):
+        raise NotImplementedError()
+
+    def del_phone(self):
+        raise NotImplementedError()
+
+    def edit_phone(self):
+        raise NotImplementedError()
+
+    def days_to_birthday(self):
+        raise NotImplementedError()
+
+    def add_email(self):
+        raise NotImplementedError()
+
+    def add_adress(self):
+        raise NotImplementedError()
+
+
 x = 0
 page = 1
 command_list = []
 
 
-class AddressBook (UserDict):
+class AddressBook (UserDict, MyBaseAbstractClass):
 
     def __init__(self):
         UserDict.__init__(self)
@@ -287,7 +339,7 @@ class Phone (Field):
             print('Telephone number does not match format!')
 
 
-class Notes:
+class Notes(MyBaseAbstractClass):
 
     # def __init__(self) -> None:
     #     self.result = {}
@@ -349,7 +401,7 @@ class Notes:
 ##########################################################
 
 
-class Email (Field):
+class Email (Field, MyBaseAbstractClass):
 
     def __init__(self) -> None:
         self.value = None
@@ -359,7 +411,7 @@ class Email (Field):
         add_book.data[name].record_dict['Email'].append(new_email)
 
 
-class Adress (Field):
+class Adress (Field, MyBaseAbstractClass):
 
     def __init__(self) -> None:
         self.value = None
@@ -410,7 +462,7 @@ class Birthday (Field):
             TryAgainError.status = 1
 
 
-class Record:
+class Record(MyBaseAbstractClass):
 
     def __init__(self) -> None:
 
